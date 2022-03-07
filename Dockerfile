@@ -9,6 +9,7 @@ RUN apt-get update && \
         jq \
         libssl-dev \
         make \
+        python3-dev \
         python3-pip \
     && apt-get autoremove --yes && apt-get clean && rm -rf /var/lib/apt/lists/* && \
     pip \
