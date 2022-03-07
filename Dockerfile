@@ -7,11 +7,17 @@ RUN apt-get update && \
         git \
         jq \
         make \
-    && apt-get autoremove --yes && apt-get clean && rm -rf /var/lib/apt/lists/*
+        python3-pip \
+    && apt-get autoremove --yes && apt-get clean && rm -rf /var/lib/apt/lists/* && \
+    pip \
+        --disable-pip-version-check \
+        --no-cache-dir \
+        install \
+        --upgrade \
+            pip
 
 COPY requirements.txt /tmp/requirements.txt
 RUN pip \
-        --disable-pip-version-check \
         --no-cache-dir \
         install \
         --no-compile \
